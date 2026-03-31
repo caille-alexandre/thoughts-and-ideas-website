@@ -1,0 +1,15 @@
+services:
+  nextjs-portfolio:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nextjs-portfolio
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    volumes:
+      # Mount du dossier Obsidian vers /content — adapter le chemin source
+      # Exemple Synology : /volume1/obsidian/Portfolio:/app/content
+      - ./content:/app/content:ro
+    environment:
+      - NODE_ENV=production
