@@ -56,13 +56,21 @@ export default function ListPanel({ notes, articles }: { notes: Note[]; articles
 
   const items = sec === 'notes' ? notes : articles
   const base  = sec === 'notes' ? '/notes' : '/writing'
-  const label = sec === 'notes'
-    ? `${notes.length} note${notes.length !== 1 ? 's' : ''}`
-    : `${articles.length} article${articles.length !== 1 ? 's' : ''}`
+
+  const sectionMeta = sec === 'notes'
+    ? { title: 'Notes', description: 'Pensées courtes, observations du quotidien, fragments en transit.' }
+    : { title: 'Writing', description: 'Articles longs, réflexions structurées sur le design et les systèmes.' }
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%', overflow: 'hidden' }}>
-      <div style={header}>{label}</div>
+      <div style={{ flexShrink: 0, padding: '1rem 1rem 0.75rem', borderBottom: '1px solid var(--border)' }}>
+        <p style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 500, color: 'var(--text)', marginBottom: '0.25rem' }}>
+          {sectionMeta.title}
+        </p>
+        <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.75rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
+          {sectionMeta.description}
+        </p>
+      </div>
       <ul style={{ flex: 1, overflowY: 'auto', listStyle: 'none' }}>
         {items.length === 0 && (
           <li style={{ padding: '1.25rem 1rem', fontSize: '0.825rem', color: 'var(--text-secondary)' }}>

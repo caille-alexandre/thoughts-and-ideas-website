@@ -40,3 +40,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .claude/
+
+# Claude Code project files (private)
+CLAUDE.md
+AGENTS.md
