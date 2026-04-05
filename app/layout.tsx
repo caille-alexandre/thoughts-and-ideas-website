@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+
+export const dynamic = 'force-dynamic'
 import './globals.css'
 import { getNotes, getArticles } from '@/lib/content'
 import TriPanelLayout from '@/components/TriPanelLayout'
