@@ -21,23 +21,15 @@ function excerpt(md: string) {
   return md.replace(/^#{1,6}\s.*/gm, '').replace(/[*_`]/g, '').trim().slice(0, 100)
 }
 
-const header: React.CSSProperties = {
-  flexShrink: 0, padding: '0.75rem 1rem',
-  borderBottom: '1px solid var(--border)',
-  fontFamily: 'var(--font-display)', fontSize: '0.7rem', fontWeight: 500,
-  letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-secondary)',
-}
-
-const row = (active: boolean): React.CSSProperties => ({
-  display: 'block', padding: '0.875rem 1rem',
-  borderBottom: '1px solid var(--border)',
-  backgroundColor: active ? 'var(--bg)' : 'transparent',
-  textDecoration: 'none', transition: 'background-color 0.1s ease',
-})
+const INSET = '2rem'
 
 const meta: React.CSSProperties = {
   fontFamily: 'var(--font-display)', fontSize: '0.68rem',
   color: 'var(--text-secondary)', flexShrink: 0, letterSpacing: '0.02em',
+}
+
+const divider: React.CSSProperties = {
+  borderBottom: '1px solid var(--border)',
 }
 
 export default function ListPanel({ notes, articles }: { notes: Note[]; articles: Article[] }) {
@@ -47,8 +39,8 @@ export default function ListPanel({ notes, articles }: { notes: Note[]; articles
 
   if (sec === 'about') return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-      <div style={header}>About</div>
-      <p style={{ padding: '1rem', fontSize: '0.8rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+      <div style={{ flexShrink: 0, padding: `0.75rem ${INSET}`, borderBottom: '1px solid var(--border)', fontFamily: 'var(--font-display)', fontSize: '0.7rem', fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-secondary)' }}>About</div>
+      <p style={{ padding: `1rem ${INSET}`, fontSize: '0.8rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
         UI Designer spécialisé en design systems.
       </p>
     </div>
@@ -63,17 +55,21 @@ export default function ListPanel({ notes, articles }: { notes: Note[]; articles
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%', overflow: 'hidden' }}>
-      <div style={{ flexShrink: 0, padding: '1rem 1rem 0.75rem', borderBottom: '1px solid var(--border)' }}>
-        <p style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 500, color: 'var(--text)', marginBottom: '0.25rem' }}>
+
+      {/* Section header */}
+      <div style={{ flexShrink: 0, padding: `2rem ${INSET} 1.75rem`, ...divider }}>
+        <p style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', fontWeight: 500, color: 'var(--text)', marginBottom: '0.375rem' }}>
           {sectionMeta.title}
         </p>
-        <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.75rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
+        <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.8125rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
           {sectionMeta.description}
         </p>
       </div>
+
+      {/* Items list */}
       <ul style={{ flex: 1, overflowY: 'auto', listStyle: 'none' }}>
         {items.length === 0 && (
-          <li style={{ padding: '1.25rem 1rem', fontSize: '0.825rem', color: 'var(--text-secondary)' }}>
+          <li style={{ padding: `1.5rem ${INSET}`, fontSize: '0.825rem', color: 'var(--text-secondary)' }}>
             Aucun contenu publié.
           </li>
         )}
@@ -85,18 +81,26 @@ export default function ListPanel({ notes, articles }: { notes: Note[]; articles
           const title = item.title ?? 'Sans titre'
           return (
             <li key={item.slug}>
-              <Link href={`${base}/${item.slug}`} style={row(on)}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: '0.5rem', marginBottom: text ? '0.3rem' : 0 }}>
-                  <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.85rem', fontWeight: on ? 500 : 400, color: 'var(--text)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', flex: 1 }}>
-                    {title}
-                  </span>
-                  <span style={meta}>{fmtDate(item.date)}</span>
+              <Link href={`${base}/${item.slug}`} style={{
+                display: 'block',
+                padding: `1.625rem ${INSET} 0`,
+                backgroundColor: on ? 'var(--bg)' : 'transparent',
+                textDecoration: 'none',
+                transition: 'background-color 0.1s ease',
+              }}>
+                <div style={{ paddingBottom: '1.625rem', ...divider }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: '0.5rem', marginBottom: text ? '0.375rem' : 0 }}>
+                    <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.85rem', fontWeight: on ? 500 : 400, color: 'var(--text)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', flex: 1 }}>
+                      {title}
+                    </span>
+                    <span style={meta}>{fmtDate(item.date)}</span>
+                  </div>
+                  {text && (
+                    <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.78rem', color: 'var(--text-secondary)', lineHeight: 1.5, overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>
+                      {text}
+                    </p>
+                  )}
                 </div>
-                {text && (
-                  <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.78rem', color: 'var(--text-secondary)', lineHeight: 1.5, overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>
-                    {text}
-                  </p>
-                )}
               </Link>
             </li>
           )

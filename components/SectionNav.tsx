@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import ThemeToggle from './ThemeToggle'
 
 const SECTIONS = [
   { id: 'about',   label: 'About',   href: '/about' },
@@ -22,9 +21,9 @@ const linkBase: React.CSSProperties = {
   display: 'flex', alignItems: 'center',
   padding: '0.5rem 1rem',
   fontFamily: 'var(--font-display)',
-  fontSize: '0.8rem',
-  letterSpacing: '0.06em',
-  textTransform: 'uppercase',
+  fontSize: '0.9375rem',
+  letterSpacing: '0.01em',
+  textTransform: 'none',
   textDecoration: 'none',
   transition: 'color 0.15s ease, border-color 0.15s ease',
 }
@@ -38,11 +37,10 @@ export default function SectionNav({ mobile = false }: { mobile?: boolean }) {
         <Link key={s.id} href={s.href} style={{
           ...linkBase,
           padding: '0.25rem 0.625rem',
-          fontSize: '0.75rem',
+          fontSize: '0.875rem',
           color: current === s.id ? 'var(--accent)' : 'var(--text-secondary)',
         }}>{s.label}</Link>
       ))}
-      <div style={{ marginLeft: 'auto' }}><ThemeToggle /></div>
     </div>
   )
 
@@ -62,9 +60,6 @@ export default function SectionNav({ mobile = false }: { mobile?: boolean }) {
           )
         })}
       </nav>
-      <div style={{ padding: '0.75rem', borderTop: '1px solid var(--border)' }}>
-        <ThemeToggle />
-      </div>
     </div>
   )
 }

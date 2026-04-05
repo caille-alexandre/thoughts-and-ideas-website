@@ -7,19 +7,20 @@ export default function AboutContent() {
       }}
     >
       {/* Title */}
-      <h1
-        style={{
-          fontFamily: 'var(--font-display)',
-          fontSize: '4rem',
-          fontWeight: 600,
-          letterSpacing: '-0.01em',
-          lineHeight: 1,
-          color: 'var(--text)',
-          marginBottom: '2.5rem',
-        }}
-      >
-        Alex
-      </h1>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', marginBottom: '2.5rem' }}>
+        <h1
+          style={{
+            fontFamily: 'var(--font-display)',
+            fontSize: '3rem',
+            fontWeight: 600,
+            letterSpacing: '-0.0625rem',
+            lineHeight: 1,
+            color: 'var(--text)',
+          }}
+        >
+          Alexandre CAILLÉ
+        </h1>
+      </div>
 
       {/* Body */}
       <div
@@ -57,9 +58,9 @@ export default function AboutContent() {
       >
         <span>See also:&nbsp;&nbsp;</span>
         {[
-          { label: 'X.com', href: 'https://x.com/AlexandreCaille' },
-          { label: 'GitHub', href: 'https://github.com/caille-alexandre' },
           { label: 'LinkedIn', href: 'https://www.linkedin.com/in/alexandrecaille/' },
+          { label: 'GitHub', href: 'https://github.com/caille-alexandre' },
+          { label: 'X.com', href: 'https://x.com/AlexandreCaille' },
         ].map((link, i, arr) => (
           <span key={link.href}>
             <a
