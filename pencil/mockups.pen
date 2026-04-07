@@ -1,0 +1,896 @@
+{
+  "version": "2.10",
+  "children": [
+    {
+      "type": "frame",
+      "id": "bi8Au",
+      "x": 0,
+      "y": 0,
+      "name": "Frame",
+      "clip": true,
+      "width": 800,
+      "height": 600,
+      "fill": "#FFFFFF",
+      "layout": "none"
+    },
+    {
+      "type": "frame",
+      "id": "PkvBV",
+      "x": 900,
+      "y": 0,
+      "name": "Page — About",
+      "width": 1440,
+      "height": 900,
+      "fill": "#F5F0E8",
+      "children": [
+        {
+          "type": "frame",
+          "id": "XyHdE",
+          "name": "SectionNav",
+          "width": 136,
+          "height": "fill_container",
+          "fill": "#EDE8DF",
+          "stroke": {
+            "align": "outside",
+            "thickness": {
+              "right": 1
+            },
+            "fill": "#D9D0C4"
+          },
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "uDk8J",
+              "name": "nav-links",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "padding": [
+                12,
+                0,
+                0,
+                0
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "u7zny",
+                  "name": "link-about",
+                  "width": "fill_container",
+                  "fill": "#F7F2EB",
+                  "stroke": {
+                    "align": "outside",
+                    "thickness": {
+                      "left": 2
+                    },
+                    "fill": "#C4603A"
+                  },
+                  "padding": [
+                    8,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "6sLju",
+                      "name": "label_about",
+                      "fill": "#C4603A",
+                      "content": "ABOUT",
+                      "fontFamily": "Oswald",
+                      "fontSize": 13,
+                      "fontWeight": "normal",
+                      "letterSpacing": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "InZsO",
+                  "name": "link-notes",
+                  "width": "fill_container",
+                  "padding": [
+                    8,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "uE4YJ",
+                      "name": "label_notes_about",
+                      "fill": "#6B5E4A",
+                      "content": "NOTES",
+                      "fontFamily": "Oswald",
+                      "fontSize": 13,
+                      "fontWeight": "300",
+                      "letterSpacing": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "5wEXV",
+                  "name": "link-writing",
+                  "width": "fill_container",
+                  "padding": [
+                    8,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "y15F7",
+                      "name": "label_writing_about",
+                      "fill": "#6B5E4A",
+                      "content": "WRITING",
+                      "fontFamily": "Oswald",
+                      "fontSize": 13,
+                      "fontWeight": "300",
+                      "letterSpacing": 1
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "yYffY",
+              "name": "nav-footer",
+              "width": "fill_container",
+              "stroke": {
+                "align": "outside",
+                "thickness": {
+                  "top": 1
+                },
+                "fill": "#D9D0C4"
+              },
+              "padding": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "WFOz3",
+                  "name": "ThemeToggle",
+                  "width": 32,
+                  "height": 18,
+                  "fill": "#D9D0C4",
+                  "cornerRadius": 9,
+                  "padding": 2,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "SJob0",
+                      "name": "toggle_knob",
+                      "fill": "#EDE8DF",
+                      "width": 14,
+                      "height": 14
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "gCCox",
+          "name": "Content — About",
+          "width": "fill_container",
+          "height": "fill_container",
+          "fill": "#F5F0E8",
+          "layout": "vertical",
+          "padding": [
+            56,
+            64
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "L6hL4",
+              "name": "Title",
+              "fill": "#1A1208",
+              "content": "Alex",
+              "lineHeight": 1,
+              "fontFamily": "Oswald",
+              "fontSize": 64,
+              "fontWeight": "600",
+              "letterSpacing": -1
+            },
+            {
+              "type": "frame",
+              "id": "p5L9F",
+              "name": "Body",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 18,
+              "padding": [
+                40,
+                0,
+                0,
+                0
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "1sFtA",
+                  "name": "p1",
+                  "fill": "#1A1208",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Hey ! 👋🏻",
+                  "lineHeight": 1.75,
+                  "fontFamily": "Instrument Sans",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "fv63i",
+                  "name": "p2",
+                  "fill": "#1A1208",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Moi c'est Alex, UI Designer chez LVMH avec plus de 7 ans d'expérience dans l'industrie du design. J'ai aidé à l'élaboration et la mise en place de plusieurs Design Systems. Quelques unes des entreprises pour lesquelles j'ai travaillé : LVMH, L'Occitane en Provence, Bedrock Streaming, 100M…",
+                  "lineHeight": 1.75,
+                  "fontFamily": "Instrument Sans",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "JXA0B",
+                  "name": "p3",
+                  "fill": "#1A1208",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "J'apprécie également redonner et façonner l'avenir du design ; si vous souhaitez des retours sur votre portfolio, envoyez-moi un message ! 📫",
+                  "lineHeight": 1.75,
+                  "fontFamily": "Instrument Sans",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "3FICd",
+                  "name": "p4",
+                  "fill": "#1A1208",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Au fait, je n'ai jamais rencontré une nouvelle technologie que je ne voulais pas tester ou un cookie que je ne voulais pas essayer ! 🍪",
+                  "lineHeight": 1.75,
+                  "fontFamily": "Instrument Sans",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "dfcxk",
+              "name": "Links",
+              "width": "fill_container",
+              "padding": [
+                40,
+                0,
+                0,
+                0
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "fQLfK",
+                  "name": "see_also",
+                  "fill": "#6B5E4A",
+                  "content": "See also:  ",
+                  "fontFamily": "Instrument Sans",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "96hGa",
+                  "name": "link_x",
+                  "fill": "#1A1208",
+                  "content": "X.com",
+                  "fontFamily": "Instrument Sans",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "L8bhu",
+                  "name": "sep1",
+                  "fill": "#6B5E4A",
+                  "content": ",  ",
+                  "fontFamily": "Instrument Sans",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "Gyy3F",
+                  "name": "link_gh",
+                  "fill": "#1A1208",
+                  "content": "GitHub",
+                  "fontFamily": "Instrument Sans",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "CnUka",
+                  "name": "sep2",
+                  "fill": "#6B5E4A",
+                  "content": ",  ",
+                  "fontFamily": "Instrument Sans",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "6CfML",
+                  "name": "link_li",
+                  "fill": "#1A1208",
+                  "content": "LinkedIn",
+                  "fontFamily": "Instrument Sans",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "auUXD",
+      "x": 2500,
+      "y": 0,
+      "name": "Page — Notes",
+      "width": 1440,
+      "height": 900,
+      "fill": "#F5F0E8",
+      "children": [
+        {
+          "type": "frame",
+          "id": "46iag",
+          "name": "SectionNav",
+          "width": 136,
+          "height": "fill_container",
+          "fill": "#EDE8DF",
+          "stroke": {
+            "align": "outside",
+            "thickness": {
+              "right": 1
+            },
+            "fill": "#D9D0C4"
+          },
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "UfylW",
+              "name": "nav-links",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "padding": [
+                12,
+                0,
+                0,
+                0
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "zBGj8",
+                  "name": "link-about",
+                  "width": "fill_container",
+                  "padding": [
+                    8,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "rWGKm",
+                      "name": "label_about_n",
+                      "fill": "#6B5E4A",
+                      "content": "ABOUT",
+                      "fontFamily": "Oswald",
+                      "fontSize": 13,
+                      "fontWeight": "300",
+                      "letterSpacing": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "5tx9J",
+                  "name": "link-notes",
+                  "width": "fill_container",
+                  "fill": "#F7F2EB",
+                  "stroke": {
+                    "align": "outside",
+                    "thickness": {
+                      "left": 2
+                    },
+                    "fill": "#C4603A"
+                  },
+                  "padding": [
+                    8,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "O7zfh",
+                      "name": "label_notes_n",
+                      "fill": "#C4603A",
+                      "content": "NOTES",
+                      "fontFamily": "Oswald",
+                      "fontSize": 13,
+                      "fontWeight": "normal",
+                      "letterSpacing": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "HwFjT",
+                  "name": "link-writing",
+                  "width": "fill_container",
+                  "padding": [
+                    8,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "tFHft",
+                      "name": "label_writing_n",
+                      "fill": "#6B5E4A",
+                      "content": "WRITING",
+                      "fontFamily": "Oswald",
+                      "fontSize": 13,
+                      "fontWeight": "300",
+                      "letterSpacing": 1
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "T57Nz",
+              "name": "nav-footer",
+              "width": "fill_container",
+              "stroke": {
+                "align": "outside",
+                "thickness": {
+                  "top": 1
+                },
+                "fill": "#D9D0C4"
+              },
+              "padding": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "JUCe5",
+                  "name": "ThemeToggle",
+                  "width": 32,
+                  "height": 18,
+                  "fill": "#D9D0C4",
+                  "cornerRadius": 9,
+                  "padding": 2,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "NMisy",
+                      "name": "toggle_knob_n",
+                      "fill": "#EDE8DF",
+                      "width": 14,
+                      "height": 14
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "ndtih",
+          "name": "ListPanel — Notes",
+          "width": 300,
+          "height": "fill_container",
+          "fill": "#EDE8DF",
+          "stroke": {
+            "align": "outside",
+            "thickness": {
+              "right": 1
+            },
+            "fill": "#D9D0C4"
+          },
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "ltTO8",
+              "name": "header",
+              "width": "fill_container",
+              "stroke": {
+                "align": "outside",
+                "thickness": {
+                  "bottom": 1
+                },
+                "fill": "#D9D0C4"
+              },
+              "layout": "vertical",
+              "gap": 4,
+              "padding": [
+                16,
+                16,
+                12,
+                16
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Klbu1",
+                  "name": "list_title",
+                  "fill": "#1A1208",
+                  "content": "Notes",
+                  "fontFamily": "Oswald",
+                  "fontSize": 20,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "a3WPt",
+                  "name": "list_desc",
+                  "fill": "#6B5E4A",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Pensées courtes, observations du quotidien, fragments en transit.",
+                  "lineHeight": 1.5,
+                  "fontFamily": "Instrument Sans",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "7rQp3",
+              "name": "note-item-active",
+              "width": "fill_container",
+              "fill": "#F5F0E8",
+              "stroke": {
+                "align": "outside",
+                "thickness": {
+                  "bottom": 1
+                },
+                "fill": "#D9D0C4"
+              },
+              "layout": "vertical",
+              "padding": [
+                14,
+                16
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "DLYar",
+                  "name": "note1_row",
+                  "width": "fill_container",
+                  "gap": 8,
+                  "padding": [
+                    0,
+                    0,
+                    5,
+                    0
+                  ],
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ENnQD",
+                      "name": "note1_title",
+                      "fill": "#1A1208",
+                      "content": "Sur la cohérence des systèmes",
+                      "fontFamily": "Instrument Sans",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "3duQw",
+                      "name": "note1_date",
+                      "fill": "#6B5E4A",
+                      "content": "12/03/26",
+                      "fontFamily": "Oswald",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "MSVF0",
+                  "name": "note1_excerpt",
+                  "fill": "#6B5E4A",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Un design system n'est pas un livrable, c'est une pratique. Il évolue, se négocie, s'adapte…",
+                  "lineHeight": 1.5,
+                  "fontFamily": "Instrument Sans",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Tn8RG",
+              "name": "note-item",
+              "width": "fill_container",
+              "stroke": {
+                "align": "outside",
+                "thickness": {
+                  "bottom": 1
+                },
+                "fill": "#D9D0C4"
+              },
+              "layout": "vertical",
+              "padding": [
+                14,
+                16
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "l44Kq",
+                  "name": "note2_row",
+                  "width": "fill_container",
+                  "gap": 8,
+                  "padding": [
+                    0,
+                    0,
+                    5,
+                    0
+                  ],
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "E5klB",
+                      "name": "note2_title",
+                      "fill": "#1A1208",
+                      "content": "Tokens, variables et décisions",
+                      "fontFamily": "Instrument Sans",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "a1Zl5",
+                      "name": "note2_date",
+                      "fill": "#6B5E4A",
+                      "content": "05/03/26",
+                      "fontFamily": "Oswald",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "301l7",
+                  "name": "note2_excerpt",
+                  "fill": "#6B5E4A",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "La vraie puissance des design tokens, c'est qu'ils rendent les décisions explicites et traçables.",
+                  "lineHeight": 1.5,
+                  "fontFamily": "Instrument Sans",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "G20SX",
+              "name": "note-item",
+              "width": "fill_container",
+              "stroke": {
+                "align": "outside",
+                "thickness": {
+                  "bottom": 1
+                },
+                "fill": "#D9D0C4"
+              },
+              "layout": "vertical",
+              "padding": [
+                14,
+                16
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "uKXzS",
+                  "name": "note3_row",
+                  "width": "fill_container",
+                  "gap": 8,
+                  "padding": [
+                    0,
+                    0,
+                    5,
+                    0
+                  ],
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "TGoOq",
+                      "name": "note3_title",
+                      "fill": "#1A1208",
+                      "content": "Ce que j'ai appris chez LVMH",
+                      "fontFamily": "Instrument Sans",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "w1iHM",
+                      "name": "note3_date",
+                      "fill": "#6B5E4A",
+                      "content": "18/02/26",
+                      "fontFamily": "Oswald",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "KU7CA",
+                  "name": "note3_excerpt",
+                  "fill": "#6B5E4A",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Le luxe impose une rigueur visuelle que peu d'industries exigent. Chaque détail compte.",
+                  "lineHeight": 1.5,
+                  "fontFamily": "Instrument Sans",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "NokO2",
+          "name": "Content — Note",
+          "width": "fill_container",
+          "height": "fill_container",
+          "fill": "#F5F0E8",
+          "layout": "vertical",
+          "gap": 32,
+          "padding": [
+            56,
+            64
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "r8PsA",
+              "name": "note-meta",
+              "width": "fill_container",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "R03IF",
+                  "name": "note_date_label",
+                  "fill": "#6B5E4A",
+                  "content": "12/03/2026",
+                  "fontFamily": "Oswald",
+                  "fontSize": 12,
+                  "fontWeight": "normal",
+                  "letterSpacing": 1
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "MaPzp",
+              "name": "note-title",
+              "fill": "#1A1208",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Sur la cohérence des systèmes",
+              "lineHeight": 1.1,
+              "fontFamily": "Oswald",
+              "fontSize": 36,
+              "fontWeight": "500"
+            },
+            {
+              "type": "frame",
+              "id": "YGDsF",
+              "name": "note-body",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 20,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "s54Ph",
+                  "name": "nb_p1",
+                  "fill": "#1A1208",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Un design system n'est pas un livrable. C'est une pratique, un contrat vivant entre les équipes design et développement.",
+                  "lineHeight": 1.75,
+                  "fontFamily": "Instrument Sans",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "s0Qff",
+                  "name": "nb_p2",
+                  "fill": "#1A1208",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Il évolue, se négocie, s'adapte aux contraintes du produit. Ce qui compte, ce n'est pas la complétude du système — c'est la cohérence des décisions qui le composent.",
+                  "lineHeight": 1.75,
+                  "fontFamily": "Instrument Sans",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "rectangle",
+                  "id": "uZNwd",
+                  "name": "divider",
+                  "fill": "#D9D0C4",
+                  "width": "fill_container",
+                  "height": 1
+                },
+                {
+                  "type": "text",
+                  "id": "9uBWz",
+                  "name": "nb_p3",
+                  "fill": "#1A1208",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "J'ai vu des équipes passer des mois à construire un système parfait sur papier, puis l'abandonner faute d'adoption. La vraie question n'est pas technique.",
+                  "lineHeight": 1.75,
+                  "fontFamily": "Instrument Sans",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
