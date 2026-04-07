@@ -41,6 +41,6 @@ yarn-error.log*
 next-env.d.ts
 .claude/
 
-# Claude Code project files (private)
-CLAUDE.md
+# Claude Code — suivi sur Gitea privé (NAS)
+# CLAUDE.md et agents/ sont versionnés (repo privé uniquement)
 AGENTS.md
