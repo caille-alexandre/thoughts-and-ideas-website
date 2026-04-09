@@ -9,21 +9,9 @@ const secHeaders = [
   { key: 'Referrer-Policy',           value: 'strict-origin-when-cross-origin' },
   // Désactive les API sensibles du navigateur
   { key: 'Permissions-Policy',        value: 'camera=(), microphone=(), geolocation=()' },
-  // Force HTTPS pour 1 an (activer une fois le SSL configuré)
-  // { key: 'Strict-Transport-Security', value: 'max-age=31536000; includeSubDomains' },
-  // Content Security Policy — ajuster si des ressources tierces sont ajoutées
-  {
-    key: 'Content-Security-Policy',
-    value: [
-      "default-src 'self'",
-      "script-src 'self' 'unsafe-inline'",   // Next.js nécessite unsafe-inline
-      "style-src 'self' 'unsafe-inline'",
-      "font-src 'self'",
-      "img-src 'self' data:",
-      "connect-src 'self'",
-      "frame-ancestors 'none'",
-    ].join('; '),
-  },
+  // Force HTTPS — 2 ans, incluant les sous-domaines
+  { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains' },
+  // Content-Security-Policy est géré dynamiquement dans middleware.ts (nonce par requête)
 ]
 
 const nextConfig: NextConfig = {
