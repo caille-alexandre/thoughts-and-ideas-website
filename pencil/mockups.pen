@@ -3,18 +3,6 @@
   "children": [
     {
       "type": "frame",
-      "id": "bi8Au",
-      "x": 0,
-      "y": 0,
-      "name": "Frame",
-      "clip": true,
-      "width": 800,
-      "height": 600,
-      "fill": "#FFFFFF",
-      "layout": "none"
-    },
-    {
-      "type": "frame",
       "id": "PkvBV",
       "x": 900,
       "y": 0,
@@ -22,12 +10,51 @@
       "width": 1440,
       "height": 900,
       "fill": "#F5F0E8",
+      "stroke": {
+        "align": "inside",
+        "thickness": {
+          "top": 32
+        },
+        "fill": {
+          "type": "gradient",
+          "gradientType": "linear",
+          "enabled": true,
+          "rotation": -90,
+          "size": {
+            "height": 1
+          },
+          "colors": [
+            {
+              "color": "#406fb6",
+              "position": 0
+            },
+            {
+              "color": "#87676f",
+              "position": 0.25
+            },
+            {
+              "color": "#f97c21",
+              "position": 0.64
+            },
+            {
+              "color": "#f9c98c",
+              "position": 1
+            }
+          ]
+        }
+      },
+      "padding": [
+        32,
+        0,
+        0,
+        0
+      ],
       "children": [
         {
           "type": "frame",
           "id": "XyHdE",
           "name": "SectionNav",
-          "width": 136,
+          "width": 200,
           "height": "fill_container",
           "fill": "#EDE8DF",
           "stroke": {
@@ -60,7 +87,7 @@
                   "width": "fill_container",
                   "fill": "#F7F2EB",
                   "stroke": {
-                    "align": "outside",
+                    "align": "inside",
                     "thickness": {
                       "left": 2
                     },
@@ -193,10 +220,10 @@
               "id": "L6hL4",
               "name": "Title",
               "fill": "#1A1208",
-              "content": "Alex",
+              "content": "Alexandre CAILLÉ",
               "lineHeight": 1,
               "fontFamily": "Oswald",
-              "fontSize": 64,
+              "fontSize": 48,
               "fontWeight": "600",
               "letterSpacing": -1
             },
@@ -356,12 +383,51 @@
       "width": 1440,
       "height": 900,
       "fill": "#F5F0E8",
+      "stroke": {
+        "align": "inside",
+        "thickness": {
+          "top": 32
+        },
+        "fill": {
+          "type": "gradient",
+          "gradientType": "linear",
+          "enabled": true,
+          "rotation": -90,
+          "size": {
+            "height": 1
+          },
+          "colors": [
+            {
+              "color": "#406fb6",
+              "position": 0
+            },
+            {
+              "color": "#87676f",
+              "position": 0.25
+            },
+            {
+              "color": "#f97c21",
+              "position": 0.64
+            },
+            {
+              "color": "#f9c98c",
+              "position": 1
+            }
+          ]
+        }
+      },
+      "padding": [
+        32,
+        0,
+        0,
+        0
+      ],
       "children": [
         {
           "type": "frame",
           "id": "46iag",
           "name": "SectionNav",
-          "width": 136,
+          "width": 200,
           "height": "fill_container",
           "fill": "#EDE8DF",
           "stroke": {
@@ -513,7 +579,7 @@
           "type": "frame",
           "id": "ndtih",
           "name": "ListPanel — Notes",
-          "width": 300,
+          "width": 420,
           "height": "fill_container",
           "fill": "#EDE8DF",
           "stroke": {
@@ -891,6 +957,47 @@
           ]
         }
       ]
+    },
+    {
+      "type": "rectangle",
+      "id": "lBu6M",
+      "x": 900,
+      "y": -271,
+      "name": "Rectangle",
+      "fill": {
+        "type": "gradient",
+        "gradientType": "linear",
+        "enabled": true,
+        "rotation": -450,
+        "size": {
+          "height": 1
+        },
+        "colors": [
+          {
+            "color": "#406fb6ff",
+            "position": 0
+          },
+          {
+            "color": "#87676fff",
+            "position": 0.25
+          },
+          {
+            "color": "#f97c21ff",
+            "position": 0.639998733997345
+          },
+          {
+            "color": "#f9c98cff",
+            "position": 1
+          }
+        ]
+      },
+      "width": 698,
+      "height": 64,
+      "stroke": {
+        "align": "outside",
+        "thickness": 4,
+        "fill": "#000000ff"
+      }
     }
   ]
 }

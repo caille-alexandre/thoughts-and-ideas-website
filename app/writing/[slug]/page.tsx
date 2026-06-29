@@ -2,6 +2,9 @@ import { getArticles, getArticleBySlug } from '@/lib/content'
 import ContentPanel from '@/components/ContentPanel'
 import { notFound } from 'next/navigation'
 
+// New slugs added via volume (without rebuild) are rendered on-demand
+export const dynamicParams = true
+
 export async function generateStaticParams() {
   const articles = getArticles()
   return articles.map((a) => ({ slug: a.slug }))

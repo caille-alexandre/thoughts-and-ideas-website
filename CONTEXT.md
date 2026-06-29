@@ -182,15 +182,24 @@ interface Article {
 - Ne jamais suggérer `git push origin` vers GitHub ou un remote public
 - Les fichiers `CLAUDE.md`, `CONTEXT.md`, `agents/`, `pencil/` sont dans `.gitignore` du repo public (workflow interne uniquement)
 
-### Security Headers (next.config.ts)
+### Security Headers
 
-Applied globally via `headers()`:
+Static headers applied globally via `next.config.ts` → `headers()`:
 - `X-Frame-Options: DENY`
 - `X-Content-Type-Options: nosniff`
 - `Referrer-Policy: strict-origin-when-cross-origin`
 - `Permissions-Policy: camera=(), microphone=(), geolocation=()`
-- `Content-Security-Policy` (allows unsafe-inline for Next.js hydration)
+- `Strict-Transport-Security: max-age=63072000; includeSubDomains`
 - Removes `X-Powered-By`
+
+Dynamic header via `proxy.ts` (Next.js 16 Proxy, runs at Edge before each request):
+- `Content-Security-Policy` — generated per request with a unique nonce
+- `script-src 'self' 'nonce-{value}' 'strict-dynamic'` — no `unsafe-inline`
+- Nonce passed via `x-nonce` request header → read in `app/layout.tsx` via `await headers()`
+
+Nginx Proxy Manager (NPM) layer:
+- `more_clear_headers 'Server'` — hides the `openresty` server header
+- No CSP override in NPM — CSP is solely managed by `proxy.ts`
 
 **Never remove or weaken these headers.**
 
