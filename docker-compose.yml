@@ -8,8 +8,9 @@ services:
     ports:
       - "3010:3000"
     volumes:
-      # Mount du dossier Obsidian vers /content — adapter le chemin source
-      # Exemple Synology : /volume1/obsidian/Portfolio:/app/content
-      - ./content:/app/content:ro
+      - type: bind
+        source: /volume1/alexandrecaille/home/5 - COLD STORAGE/personal-projects/design-portfolio
+        target: /app/content
+        read_only: true
     environment:
       - NODE_ENV=production
