@@ -1,9 +1,22 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
-export function proxy(request: NextRequest) {
-  const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
+const LAB_COOKIE = 'lab_session'
 
+export function proxy(request: NextRequest) {
+  const { pathname } = request.nextUrl
+
+  // Lab auth — protect all /lab routes except /lab/login
+  if (pathname.startsWith('/lab') && !pathname.startsWith('/lab/login')) {
+    const session = request.cookies.get(LAB_COOKIE)?.value
+    const expected = process.env.LAB_TOKEN
+    if (!expected || !session || session !== expected) {
+      return NextResponse.redirect(new URL('/lab/login', request.url))
+    }
+  }
+
+  // CSP nonce — generated per request, injected via x-nonce header
+  const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
   const csp = [
     "default-src 'self'",
     `script-src 'self' 'nonce-${nonce}' 'strict-dynamic'`,
@@ -17,10 +30,7 @@ export function proxy(request: NextRequest) {
   const requestHeaders = new Headers(request.headers)
   requestHeaders.set('x-nonce', nonce)
 
-  const response = NextResponse.next({
-    request: { headers: requestHeaders },
-  })
-
+  const response = NextResponse.next({ request: { headers: requestHeaders } })
   response.headers.set('Content-Security-Policy', csp)
 
   return response

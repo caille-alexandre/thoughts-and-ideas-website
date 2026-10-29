@@ -75,6 +75,7 @@ export default function ListPanel({ notes, articles }: { notes: Note[]; articles
         )}
         {items.map(item => {
           const on = active === item.slug
+          const isPinned = 'pinned' in item && !!(item as Note).pinned
           const text: string | undefined = 'description' in item
             ? (item as Article).description
             : excerpt((item as Note).content)
@@ -90,7 +91,10 @@ export default function ListPanel({ notes, articles }: { notes: Note[]; articles
               }}>
                 <div style={{ paddingBottom: '1.625rem', ...divider }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: '0.5rem', marginBottom: text ? '0.375rem' : 0 }}>
-                    <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.85rem', fontWeight: on ? 500 : 400, color: 'var(--text)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', flex: 1 }}>
+                    <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.85rem', fontWeight: on ? 500 : 400, color: 'var(--text)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', flex: 1, display: 'flex', alignItems: 'center', gap: '0.375rem' }}>
+                      {isPinned && (
+                        <span aria-hidden="true" style={{ color: 'var(--accent)', fontSize: '0.6rem', flexShrink: 0, lineHeight: 1 }}>●</span>
+                      )}
                       {title}
                     </span>
                     <span style={meta}>{fmtDate(item.date)}</span>

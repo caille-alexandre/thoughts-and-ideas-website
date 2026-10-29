@@ -25,10 +25,14 @@ export function getNotes(): Note[] {
     .map(f => {
       const { data, content } = parse(path.join(dir, f))
       if (!data.published) return null
-      return { slug: f.replace(/\.mdx?$/, ''), title: data.title, date: data.date ?? '', content } as Note
+      return { slug: f.replace(/\.mdx?$/, ''), title: data.title, date: data.date ?? '', content, pinned: !!data.pinned } as Note
     })
     .filter((n): n is Note => n !== null)
-    .sort((a, b) => b.date.localeCompare(a.date))
+    .sort((a, b) => {
+      if (a.pinned && !b.pinned) return -1
+      if (!a.pinned && b.pinned) return 1
+      return b.date.localeCompare(a.date)
+    })
 }
 
 export function getNoteBySlug(slug: string): Note | null {
@@ -38,7 +42,7 @@ export function getNoteBySlug(slug: string): Note | null {
   if (!file) return null
   const { data, content } = parse(file)
   if (!data.published) return null
-  return { slug, title: data.title, date: data.date ?? '', content }
+  return { slug, title: data.title, date: data.date ?? '', content, pinned: !!data.pinned }
 }
 
 // ─── Articles ─────────────────────────────────────────────
