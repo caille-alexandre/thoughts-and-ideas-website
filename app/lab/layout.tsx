@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { logout } from './actions'
 
 const GRADIENT = 'linear-gradient(to right, #406fb6 0%, #87676f 25%, #f97c21 64%, #f9c98c 100%)'
 
@@ -14,7 +13,7 @@ const NAV_ITEMS = [
 function LabNav() {
   const pathname = usePathname()
   return (
-    <nav aria-label="Navigation Lab">
+    <nav aria-label="Navigation DS-Lab">
       <ul style={{ listStyle: 'none', padding: '1rem 0' }}>
         {NAV_ITEMS.map(item => {
           const active = pathname.startsWith(item.href)
@@ -46,10 +45,6 @@ function LabNav() {
 }
 
 export default function LabLayout({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname()
-
-  if (pathname === '/lab/login') return <>{children}</>
-
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
 
@@ -73,33 +68,17 @@ export default function LabLayout({ children }: { children: React.ReactNode }) {
           color: 'rgba(255,255,255,0.9)',
           textDecoration: 'none',
         }}>
-          Lab
+          DS-Lab
         </Link>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          <Link href="/" style={{
-            fontFamily: 'var(--font-display)',
-            fontSize: '0.68rem',
-            letterSpacing: '0.05em',
-            color: 'rgba(255,255,255,0.7)',
-            textDecoration: 'none',
-          }}>
-            ← Portfolio
-          </Link>
-          <form action={logout}>
-            <button type="submit" style={{
-              background: 'none',
-              border: 'none',
-              cursor: 'pointer',
-              fontFamily: 'var(--font-display)',
-              fontSize: '0.68rem',
-              letterSpacing: '0.05em',
-              color: 'rgba(255,255,255,0.7)',
-              padding: 0,
-            }}>
-              Déconnexion
-            </button>
-          </form>
-        </div>
+        <Link href="/" style={{
+          fontFamily: 'var(--font-display)',
+          fontSize: '0.68rem',
+          letterSpacing: '0.05em',
+          color: 'rgba(255,255,255,0.7)',
+          textDecoration: 'none',
+        }}>
+          ← Portfolio
+        </Link>
       </div>
 
       {/* Body */}
