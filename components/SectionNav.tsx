@@ -17,6 +17,15 @@ function active(pathname: string): Id {
   return 'about'
 }
 
+function LockIcon() {
+  return (
+    <svg aria-hidden="true" width="10" height="11" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
+      <rect x="1" y="4.5" width="8" height="6" rx="1" stroke="currentColor" strokeWidth="1.25"/>
+      <path d="M3 4.5V3a2 2 0 0 1 4 0v1.5" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round"/>
+    </svg>
+  )
+}
+
 const linkBase: React.CSSProperties = {
   display: 'flex', alignItems: 'center',
   padding: '0.5rem 1rem',
@@ -41,6 +50,16 @@ export default function SectionNav({ mobile = false }: { mobile?: boolean }) {
           color: current === s.id ? 'var(--accent)' : 'var(--text-secondary)',
         }}>{s.label}</Link>
       ))}
+      <Link href="/lab/login" aria-label="Lab — accès protégé" style={{
+        ...linkBase,
+        padding: '0.25rem 0.625rem',
+        fontSize: '0.875rem',
+        color: 'var(--border)',
+        display: 'flex', alignItems: 'center', gap: '0.3rem',
+      }}>
+        <LockIcon />
+        Lab
+      </Link>
     </div>
   )
 
@@ -59,6 +78,17 @@ export default function SectionNav({ mobile = false }: { mobile?: boolean }) {
             }}>{s.label}</Link>
           )
         })}
+        <div style={{ margin: '0.75rem 1rem', borderTop: '1px solid var(--border)' }} />
+        <Link href="/lab/login" aria-label="Lab — accès protégé par mot de passe" style={{
+          ...linkBase,
+          fontWeight: 300,
+          color: 'var(--border)',
+          borderLeft: '2px solid transparent',
+          display: 'flex', alignItems: 'center', gap: '0.4rem',
+        }}>
+          <LockIcon />
+          Lab
+        </Link>
       </nav>
     </div>
   )
