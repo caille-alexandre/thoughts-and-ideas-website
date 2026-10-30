@@ -15,3 +15,5 @@ services:
         read_only: true
     environment:
       - NODE_ENV=production
+      - LAB_PASSWORD=${LAB_PASSWORD}
+      - LAB_TOKEN=${LAB_TOKEN}
