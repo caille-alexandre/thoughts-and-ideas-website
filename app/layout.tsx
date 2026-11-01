@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 export const dynamic = 'force-dynamic'
 import './globals.css'
 import { getNotes, getArticles } from '@/lib/content'
-import ConditionalLayout from '@/components/ConditionalLayout'
+import TriPanelLayout from '@/components/TriPanelLayout'
 
 export const metadata: Metadata = {
   title: 'Alexandre Caillé',
@@ -18,9 +18,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html lang="fr" className="h-full">
       <body className="h-full">
         <main className="h-full">
-          <ConditionalLayout notes={notes} articles={articles}>
+          <TriPanelLayout notes={notes} articles={articles}>
             {children}
-          </ConditionalLayout>
+          </TriPanelLayout>
         </main>
       </body>
     </html>

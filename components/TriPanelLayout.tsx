@@ -43,7 +43,7 @@ interface Props { notes: Note[]; articles: Article[]; children: React.ReactNode 
 
 export default function TriPanelLayout({ notes, articles, children }: Props) {
   const pathname = usePathname()
-  const isAbout = pathname.startsWith('/about')
+  const showList = !pathname.startsWith('/about') && !pathname.startsWith('/lab')
 
   return (
     <>
@@ -52,7 +52,7 @@ export default function TriPanelLayout({ notes, articles, children }: Props) {
         <div style={gradientBar} />
         <div style={{ flex: '1 1 0%', display: 'flex', minHeight: 0, overflow: 'hidden' }}>
           <div style={panel1Style} className="flex-col"><SectionNav /></div>
-          {!isAbout && (
+          {showList && (
             <div style={panel2Style} className="flex-col"><ListPanel notes={notes} articles={articles} /></div>
           )}
           <div style={contentStyle}>{children}</div>
@@ -63,7 +63,7 @@ export default function TriPanelLayout({ notes, articles, children }: Props) {
       <div className="panels-mobile">
         <div style={gradientBar} />
         <div style={{ borderBottom: '1px solid var(--border)', backgroundColor: 'var(--surface)' }}><SectionNav mobile /></div>
-        {!isAbout && <div style={mobileListStyle}><ListPanel notes={notes} articles={articles} /></div>}
+        {showList && <div style={mobileListStyle}><ListPanel notes={notes} articles={articles} /></div>}
         <div style={{ flex: '1 1 0%', overflowY: 'auto', backgroundColor: 'var(--bg)' }}>{children}</div>
       </div>
     </>
