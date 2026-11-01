@@ -139,7 +139,7 @@ export default function TokensPage() {
           <div style={{
             height: 12,
             borderRadius: 6,
-            background: 'linear-gradient(to right, #406fb6 0%, #87676f 25%, #f97c21 64%, #f9c98c 100%)',
+            background: 'linear-gradient(to right, var(--gradient-1) 0%, var(--gradient-2) 25%, var(--gradient-3) 64%, var(--gradient-4) 100%)',
           }} />
         </div>
       )}

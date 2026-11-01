@@ -58,15 +58,16 @@ export default function AboutContent() {
       >
         <span>See also:&nbsp;&nbsp;</span>
         {[
-          { label: 'LinkedIn', href: 'https://www.linkedin.com/in/alexandrecaille/' },
-          { label: 'GitHub', href: 'https://github.com/caille-alexandre' },
-          { label: 'X.com', href: 'https://x.com/AlexandreCaille' },
+          { label: 'LinkedIn', href: 'https://www.linkedin.com/in/alexandrecaille/', ariaLabel: 'LinkedIn (ouvre dans un nouvel onglet)' },
+          { label: 'GitHub', href: 'https://github.com/caille-alexandre', ariaLabel: 'GitHub (ouvre dans un nouvel onglet)' },
+          { label: 'X.com', href: 'https://x.com/AlexandreCaille', ariaLabel: 'X.com (ouvre dans un nouvel onglet)' },
         ].map((link, i, arr) => (
           <span key={link.href}>
             <a
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={link.ariaLabel}
               style={{
                 color: 'var(--text)',
                 textDecoration: 'underline',

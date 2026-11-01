@@ -32,9 +32,9 @@ export default function SectionNav({ mobile = false }: { mobile?: boolean }) {
   const current = active(usePathname())
 
   if (mobile) return (
-    <div style={{ display: 'flex', alignItems: 'center', padding: '0.75rem 1rem', gap: '0.25rem' }}>
+    <nav aria-label="Navigation principale" style={{ display: 'flex', alignItems: 'center', padding: '0.75rem 1rem', gap: '0.25rem' }}>
       {SECTIONS.map(s => (
-        <Link key={s.id} href={s.href} style={{
+        <Link key={s.id} href={s.href} aria-current={current === s.id ? 'page' : undefined} style={{
           ...linkBase,
           padding: '0.25rem 0.625rem',
           fontSize: '0.875rem',
@@ -49,16 +49,16 @@ export default function SectionNav({ mobile = false }: { mobile?: boolean }) {
       }}>
         DS-Lab
       </Link>
-    </div>
+    </nav>
   )
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-      <nav style={{ display: 'flex', flexDirection: 'column', flex: 1, paddingTop: '0.75rem' }}>
+      <nav aria-label="Navigation principale" style={{ display: 'flex', flexDirection: 'column', flex: 1, paddingTop: '0.75rem' }}>
         {SECTIONS.map(s => {
           const on = current === s.id
           return (
-            <Link key={s.id} href={s.href} style={{
+            <Link key={s.id} href={s.href} aria-current={on ? 'page' : undefined} style={{
               ...linkBase,
               fontWeight: on ? 400 : 300,
               color: on ? 'var(--accent)' : 'var(--text-secondary)',

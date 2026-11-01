@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { headers } from 'next/headers'
 
 export const dynamic = 'force-dynamic'
 import './globals.css'
@@ -12,9 +11,6 @@ export const metadata: Metadata = {
 }
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  // Lecture du nonce injecté par middleware.ts — Next.js l'applique automatiquement
-  // à ses propres <script> tags (hydratation RSC, chunks)
-  await headers()
   const notes = getNotes()
   const articles = getArticles()
 

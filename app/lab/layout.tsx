@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-const GRADIENT = 'linear-gradient(to right, #406fb6 0%, #87676f 25%, #f97c21 64%, #f9c98c 100%)'
+const GRADIENT = 'linear-gradient(to right, var(--gradient-1) 0%, var(--gradient-2) 25%, var(--gradient-3) 64%, var(--gradient-4) 100%)'
 
 const NAV_ITEMS = [
   { label: 'Tokens', href: '/lab/tokens' },
