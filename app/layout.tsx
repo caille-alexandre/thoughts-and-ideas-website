@@ -4,6 +4,7 @@ export const dynamic = 'force-dynamic'
 import './globals.css'
 import { getNotes, getArticles } from '@/lib/content'
 import TriPanelLayout from '@/components/TriPanelLayout'
+import CursorBracket from '@/components/CursorBracket'
 
 export const metadata: Metadata = {
   title: 'Alexandre Caillé',
@@ -22,6 +23,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             {children}
           </TriPanelLayout>
         </main>
+        <CursorBracket />
       </body>
     </html>
   )

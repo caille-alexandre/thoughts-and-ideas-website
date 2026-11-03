@@ -120,6 +120,47 @@ a:hover { text-decoration: underline; }
 .prose pre         { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 1rem 1.25rem; margin-bottom: 1.25rem; overflow-x: auto; }
 .prose pre code    { background: none; border: none; padding: 0; font-size: 0.875rem; }
 
+/* ─── Cursor bracket ─── */
+#cursor-bracket {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.has-cursor #cursor-bracket { opacity: 1; }
+
+#cursor-bracket span {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 0 solid var(--accent);
+}
+
+#cursor-bracket .cb-tl { border-top-width: 1.5px; border-left-width:  1.5px; top: 0;    left: 0;   }
+#cursor-bracket .cb-tr { border-top-width: 1.5px; border-right-width: 1.5px; top: 0;    right: 0;  }
+#cursor-bracket .cb-bl { border-bottom-width: 1.5px; border-left-width:  1.5px; bottom: 0; left: 0; }
+#cursor-bracket .cb-br { border-bottom-width: 1.5px; border-right-width: 1.5px; bottom: 0; right: 0; }
+
+#cursor-bracket .cb-label {
+  position: absolute;
+  top: 100%;
+  left: 100%;
+  margin: 3px 0 0 3px;
+  font-family: 'Courier New', monospace;
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+#cursor-bracket.cursor-locked .cb-label { opacity: 1; }
+
 /* ─── Motion ─── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
