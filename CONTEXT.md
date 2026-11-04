@@ -4,9 +4,9 @@
 
 ## Project Overview
 
-**alexandrecaille.fr** is a personal portfolio for Alexandre Caillé, a UI designer specializing in design systems. The site serves as both a public presence and a content platform for short-form notes and long-form articles on design and front-end topics. Content is written in Obsidian and synced to the repository as Markdown files.
+**alexandrecaille.fr** is a personal portfolio for Alexandre Caillé, a UI designer specializing in design systems. The site serves as both a public presence and a content platform for short-form notes and long-form articles on design and front-end topics. Content is authored as Markdown files in `/content`.
 
-The project deliberately avoids complexity: no CMS, no database, no heavy framework, no Tailwind. It is a focused, maintainable system built around a clear design philosophy.
+The project deliberately avoids complexity: no CMS, no database, no heavy framework, no Tailwind. It is a focused, maintainable system built around a clear design philosophy — simple purpose, simple architecture, simple design, simple implementation.
 
 ---
 
@@ -21,9 +21,10 @@ The project deliberately avoids complexity: no CMS, no database, no heavy framew
 | Content | Markdown / MDX | — |
 | Frontmatter | gray-matter | 4.0.3 |
 | Markdown render | marked | 17.0.5 |
+| Component doc | Storybook | stories/ |
 | Deployment | Docker → NAS Synology | standalone output |
 
-**There is no Tailwind, no CSS-in-JS, no styled-components, no UI library.**
+**There is no Tailwind, no CSS-in-JS, no styled-components, no UI library.** CSS variables *are* the design system — named semantically, owned entirely, readable by humans and agents alike.
 
 ---
 
@@ -224,7 +225,7 @@ Nginx Proxy Manager (NPM) layer:
 - Path alias `@/*` maps to project root
 
 ### Content Authoring
-- Written in Obsidian, synced to `content/` as `.md` files
+- Authored directly as `.md` files in `content/`
 - MDX supported but rarely used (`.mdx` for about page only)
 - Slug = filename without extension (kebab-case, lowercase, no special chars)
 

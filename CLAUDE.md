@@ -8,9 +8,22 @@ UI Designer specializing in design systems. This portfolio is both his public pr
 
 ## What this project is
 
-Personal portfolio at **alexandrecaille.fr** — a Next.js 16 app with a tri-panel layout, content driven by Markdown/MDX files synced from Obsidian. No CMS, no database, no Tailwind.
+Personal portfolio at **alexandrecaille.fr** — a Next.js 16 app with a tri-panel layout, content driven by Markdown/MDX files in `/content`. No CMS, no database, no Tailwind.
 
 → Full technical context: [CONTEXT.md](./CONTEXT.md)
+
+## Design Philosophy
+
+> Simple purpose, simple architecture, simple design, simple implementation.
+
+Reference bar: **Linear's website** and **Apple Notes** — minimal chrome, maximum clarity.
+
+Every decision must simultaneously elevate:
+- **UX** — the reader's experience
+- **DX** — the developer's experience writing and maintaining it
+- **AX** — the agent's ability to read, reason about, and modify it
+
+If a screen needs helper text or secondary labels to make sense, fix the layout — don't add copy. Cut taglines. No decorative structure. If it doesn't earn its place, remove it.
 
 ## Agent Profiles
 
@@ -24,15 +37,29 @@ Use these when working in a specific role:
 | Front-end Developer | [agents/front-dev.md](./agents/front-dev.md) | React components, CSS, Next.js routing |
 | Back-end Developer | [agents/back-dev.md](./agents/back-dev.md) | Content loading, build pipeline, Docker/NAS |
 
+## Stack
+
+| Layer | Technology | Notes |
+|-------|------------|-------|
+| Framework | Next.js 16 (App Router) | Static generation + standalone output |
+| Language | TypeScript strict | No `any`, honor `lib/types.ts` |
+| UI | React 19 | Server components by default |
+| Styling | CSS variables only | Single file: `app/globals.css` |
+| Content | Markdown / MDX | Filesystem-based, `/content` |
+| Frontmatter | gray-matter | |
+| Markdown render | marked | |
+| Component doc | Storybook | Stories in `stories/` |
+| Deployment | Docker → NAS Synology | `output: 'standalone'` |
+
 ## Critical Rules
 
-1. **No Tailwind** — styled exclusively with CSS variables in `app/globals.css`
+1. **No Tailwind** — CSS variables *are* the design system: named semantically (`--accent`, not `text-orange-500`), readable by agents, zero abstraction between intent and render. Tailwind would break design system ownership.
 2. **No new dependencies** without explicit request — keep the stack minimal
 3. **TypeScript strict mode** — no `any`, honor all types in `lib/types.ts`
 4. **Content lives in `/content`** — never hardcode content in components
 5. **Preserve security headers** in `next.config.ts` — never remove or weaken them
 6. **French locale** — dates and UI text use `fr-FR` formatting
-7. **No CMS** — content is filesystem-based, synced from Obsidian via `.md`/`.mdx`
+7. **No CMS** — content is filesystem-based `.md`/`.mdx` files
 8. **`published: false` hides content** — never bypass the `published` flag logic
 
 ## Accessibility — RGAA AA
@@ -139,7 +166,7 @@ Portfolio/
 │   ├── ListPanel.tsx            ← Left sidebar: list of notes or articles
 │   └── SectionNav.tsx           ← Navigation: About / Notes / Writing
 │
-├── content/                     ← All site content (Obsidian-synced)
+├── content/                     ← All site content (.md / .mdx files)
 │   ├── about.mdx                ← About page
 │   ├── notes/                   ← Short-form notes
 │   └── writing/                 ← Long-form articles
@@ -147,6 +174,8 @@ Portfolio/
 ├── lib/
 │   ├── content.ts               ← Filesystem content loader (gray-matter)
 │   └── types.ts                 ← Note & Article TypeScript interfaces
+│
+├── stories/                     ← Storybook stories
 │
 ├── public/                      ← Static assets
 ├── pencil/                      ← Design files (.pen — use Pencil MCP to read)
@@ -174,6 +203,7 @@ Portfolio/
 - Create file in `components/` with PascalCase name, one component per file
 - TypeScript interfaces defined inline or imported from `lib/types.ts`
 - Style using CSS variables from `:root` only
+- Add a Storybook story in `stories/`
 
 ### Publish / unpublish content
 - Set `published: true` or `published: false` in markdown frontmatter
