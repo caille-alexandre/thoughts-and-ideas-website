@@ -195,9 +195,21 @@ Portfolio/
 6. Handle visibility in `components/TriPanelLayout.tsx` and `components/ListPanel.tsx`
 
 ### Modify the design system
-- Edit CSS variables in `app/globals.css` under `:root`
-- Never use hardcoded color values or sizes — always reference a `--variable`
-- Dark mode uses `prefers-color-scheme` media query (not a data-theme toggle yet)
+
+Tokens and fonts now live in the `ac-design-system` package on Gitea — **not** in `globals.css`.
+
+**Workflow when a token or font changes:**
+1. Clone (or pull) `https://git-perso.alexandrecaille.fr/alexandrecaille/ac-design-system`
+2. Edit `tokens.css` (root) — this is the source of truth
+3. Mirror the change in `src/styles/tokens.css` if Storybook needs it
+4. Update `src/index.ts` if a TypeScript constant changes
+5. **Update `README.md`** in that repo — token table must stay accurate
+6. Commit and push to `main` on Gitea
+7. Back in this project: `npm update ac-design-system`
+
+Globals-only rules (layout, prose, cursor, motion) stay in `app/globals.css`.
+Never add token values directly to `globals.css` — they belong in the DS package.
+Dark mode uses `prefers-color-scheme` media query (no data-theme toggle yet).
 
 ### Add a new component
 - Create file in `components/` with PascalCase name, one component per file

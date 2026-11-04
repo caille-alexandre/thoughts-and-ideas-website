@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 
 export const dynamic = 'force-dynamic'
+import 'ac-design-system/fonts.css'
+import 'ac-design-system/tokens.css'
 import './globals.css'
 import { getNotes, getArticles } from '@/lib/content'
 import TriPanelLayout from '@/components/TriPanelLayout'
