@@ -7,6 +7,9 @@ RUN npm ci --omit=dev
 
 # ── builder ─────────────────────────────────────────────────────────────────
 FROM node:20-alpine AS builder
+# git : ac-design-system est une dépendance git (Gitea) — absent de l'image alpine.
+# Uniquement dans ce stage : l'image finale (runner) ne l'embarque pas.
+RUN apk add --no-cache git
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
