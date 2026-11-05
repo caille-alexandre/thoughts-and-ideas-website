@@ -21,7 +21,6 @@ The project deliberately avoids complexity: no CMS, no database, no heavy framew
 | Content | Markdown / MDX | — |
 | Frontmatter | gray-matter | 4.0.3 |
 | Markdown render | marked | 17.0.5 |
-| Component doc | Storybook | stories/ |
 | Deployment | Docker → NAS Synology | standalone output |
 
 **There is no Tailwind, no CSS-in-JS, no styled-components, no UI library.** CSS variables *are* the design system — named semantically, owned entirely, readable by humans and agents alike.
@@ -181,7 +180,7 @@ interface Article {
 - **Remote**: Gitea auto-hébergé sur le NAS Synology (pas GitHub)
 - **Repo public** : aucun — tout est privé sur le Gitea interne
 - Ne jamais suggérer `git push origin` vers GitHub ou un remote public
-- Les fichiers `CLAUDE.md`, `CONTEXT.md`, `agents/`, `pencil/` sont dans `.gitignore` du repo public (workflow interne uniquement)
+- Les fichiers `CLAUDE.md`, `CONTEXT.md`, `agents/` sont dans `.gitignore` du repo public (workflow interne uniquement)
 
 ### Security Headers
 
@@ -228,12 +227,6 @@ Nginx Proxy Manager (NPM) layer:
 - Authored directly as `.md` files in `content/`
 - MDX supported but rarely used (`.mdx` for about page only)
 - Slug = filename without extension (kebab-case, lowercase, no special chars)
-
----
-
-## Design Files
-
-The `pencil/` directory contains `.pen` design files. These are **encrypted** and can only be read via the **Pencil MCP server** (`batch_get`, `batch_design` tools). Do not use `Read`, `Grep`, or `cat` on `.pen` files.
 
 ---
 

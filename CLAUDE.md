@@ -48,7 +48,6 @@ Use these when working in a specific role:
 | Content | Markdown / MDX | Filesystem-based, `/content` |
 | Frontmatter | gray-matter | |
 | Markdown render | marked | |
-| Component doc | Storybook | Stories in `stories/` |
 | Deployment | Docker → NAS Synology | `output: 'standalone'` |
 
 ## Critical Rules
@@ -175,10 +174,7 @@ Portfolio/
 │   ├── content.ts               ← Filesystem content loader (gray-matter)
 │   └── types.ts                 ← Note & Article TypeScript interfaces
 │
-├── stories/                     ← Storybook stories
-│
 ├── public/                      ← Static assets
-├── pencil/                      ← Design files (.pen — use Pencil MCP to read)
 ├── next.config.ts               ← Next.js config + security headers
 ├── package.json
 └── tsconfig.json
@@ -215,7 +211,6 @@ Dark mode uses `prefers-color-scheme` media query (no data-theme toggle yet).
 - Create file in `components/` with PascalCase name, one component per file
 - TypeScript interfaces defined inline or imported from `lib/types.ts`
 - Style using CSS variables from `:root` only
-- Add a Storybook story in `stories/`
 
 ### Publish / unpublish content
 - Set `published: true` or `published: false` in markdown frontmatter
