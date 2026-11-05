@@ -102,8 +102,8 @@ The site must be as lightweight and energy-efficient as possible. These rules ar
 
 ### Fonts
 - **Self-host all fonts** in `public/fonts/` — no external font requests (no Google Fonts CDN)
-- Load fonts via `@font-face` in `globals.css` with `font-display: swap`
-- Only load the weights actually used (currently: Oswald 400/700, Instrument Sans 400/600)
+- `@font-face` declarations live in the DS package (`ac-design-system/fonts.css`, `font-display: swap`); the woff2 files live here in `public/fonts/`
+- Only load the weights actually used (currently: Oswald 400–600, Instrument Sans 400–500, iA Writer Mono S 400)
 - Use `woff2` format exclusively — best compression, universally supported
 
 ### Assets
@@ -159,11 +159,15 @@ Portfolio/
 │       └── [slug]/page.tsx
 │
 ├── components/
-│   ├── TriPanelLayout.tsx       ← Core layout: 3-column desktop / stacked mobile
-│   ├── ContentPanel.tsx         ← Renders markdown HTML with .prose styling
-│   ├── AboutContent.tsx         ← About page specific content
-│   ├── ListPanel.tsx            ← Left sidebar: list of notes or articles
-│   └── SectionNav.tsx           ← Navigation: About / Notes / Writing
+│   ├── TriPanelLayout.tsx       ← Core layout: gradient bar + 3 panels split by bold dividers / stacked mobile
+│   ├── SectionNav.tsx           ← Left panel: About / Notes / Writing + external AC Design System link
+│   ├── MenuEntry.tsx            ← Nav entry (active state, external link, icon)
+│   ├── ListPanel.tsx            ← Middle panel: section title + list of notes or articles
+│   ├── ListPanelItem.tsx        ← One list row (default / hover / selected)
+│   ├── ContentPanel.tsx         ← Right panel: markdown HTML with .prose styling
+│   ├── Divider.tsx              ← Thin (1px) or bold (4px) separator
+│   ├── CursorBracket.tsx        ← Animated bracket cursor (fine pointers only, respects reduced motion)
+│   └── AboutContent.tsx         ← About page specific content
 │
 ├── content/                     ← All site content (.md / .mdx files)
 │   ├── about.mdx                ← About page
@@ -174,7 +178,7 @@ Portfolio/
 │   ├── content.ts               ← Filesystem content loader (gray-matter)
 │   └── types.ts                 ← Note & Article TypeScript interfaces
 │
-├── public/                      ← Static assets
+├── public/                      ← Static assets (fonts/, icons/icon-external.svg)
 ├── next.config.ts               ← Next.js config + security headers
 ├── package.json
 └── tsconfig.json

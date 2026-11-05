@@ -2,6 +2,8 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import MenuEntry from './MenuEntry'
+import Divider from './Divider'
 
 const SECTIONS = [
   { id: 'about',   label: 'About',   href: '/about' },
@@ -9,7 +11,8 @@ const SECTIONS = [
   { id: 'writing', label: 'Writing', href: '/writing' },
 ] as const
 
-const DS_LAB_URL = 'https://ac-design-system.alexandrecaille.fr'
+const DS_LABEL = 'AC Design System'
+const DS_URL = 'https://ac-design-system.alexandrecaille.fr'
 
 type SectionId = (typeof SECTIONS)[number]['id']
 
@@ -19,21 +22,13 @@ function activeSection(pathname: string): SectionId {
   return 'about'
 }
 
-const linkBase: React.CSSProperties = {
-  display: 'flex', alignItems: 'center',
-  padding: '0.5rem 1rem',
+const mobileLink: React.CSSProperties = {
+  display: 'flex', alignItems: 'center', gap: '8px',
+  padding: '0.25rem 0.625rem',
   fontFamily: 'var(--font-display)',
-  fontSize: '0.9375rem',
+  fontSize: '0.875rem',
   letterSpacing: '0.01em',
   textDecoration: 'none',
-  transition: 'color 0.15s ease, border-color 0.15s ease',
-}
-
-const externalLinkStyle: React.CSSProperties = {
-  ...linkBase,
-  fontWeight: 300,
-  color: 'var(--text-secondary)',
-  borderLeft: '2px solid transparent',
 }
 
 export default function SectionNav({ mobile = false }: { mobile?: boolean }) {
@@ -44,43 +39,31 @@ export default function SectionNav({ mobile = false }: { mobile?: boolean }) {
     <nav aria-label="Navigation principale" style={{ display: 'flex', alignItems: 'center', padding: '0.75rem 1rem', gap: '0.25rem', flexWrap: 'wrap' }}>
       {SECTIONS.map(s => (
         <Link key={s.id} href={s.href} aria-current={current === s.id ? 'page' : undefined} style={{
-          ...linkBase,
-          padding: '0.25rem 0.625rem',
-          fontSize: '0.875rem',
-          color: current === s.id ? 'var(--accent)' : 'var(--text-secondary)',
+          ...mobileLink,
+          color: current === s.id ? 'var(--text-accent)' : 'var(--text-secondary)',
         }}>{s.label}</Link>
       ))}
-      <a href={DS_LAB_URL} target="_blank" rel="noopener noreferrer" aria-label="DS-Lab — ouvre dans un nouvel onglet" style={{
-        ...linkBase,
-        padding: '0.25rem 0.625rem',
-        fontSize: '0.875rem',
-        color: 'var(--text-secondary)',
-      }}>DS-Lab</a>
+      <a href={DS_URL} target="_blank" rel="noopener noreferrer" aria-label={`${DS_LABEL} — ouvre dans un nouvel onglet`} style={{ ...mobileLink, color: 'var(--text-secondary)' }}>
+        {DS_LABEL}
+        <span aria-hidden="true" className="menu-entry__icon" />
+      </a>
     </nav>
   )
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-      <nav aria-label="Navigation principale" style={{ display: 'flex', flexDirection: 'column', flex: 1, paddingTop: '0.75rem' }}>
-        {SECTIONS.map(s => {
-          const on = current === s.id
-          return (
-            <Link key={s.id} href={s.href} aria-current={on ? 'page' : undefined} style={{
-              ...linkBase,
-              fontWeight: on ? 400 : 300,
-              color: on ? 'var(--accent)' : 'var(--text-secondary)',
-              borderLeft: `2px solid ${on ? 'var(--accent)' : 'transparent'}`,
-              backgroundColor: on ? 'color-mix(in srgb, var(--accent) 6%, transparent)' : 'transparent',
-            }}>{s.label}</Link>
-          )
-        })}
+    <nav
+      aria-label="Navigation principale"
+      style={{ display: 'flex', flexDirection: 'column', gap: '4px', padding: '12px 0', width: '100%' }}
+    >
+      {SECTIONS.map(s => (
+        <MenuEntry key={s.id} label={s.label} href={s.href} active={current === s.id} />
+      ))}
 
-        <div style={{ margin: '0.75rem 1rem', borderTop: '1px solid var(--border)' }} />
+      <div style={{ padding: '0 16px' }}>
+        <Divider />
+      </div>
 
-        <a href={DS_LAB_URL} target="_blank" rel="noopener noreferrer" aria-label="DS-Lab — ouvre dans un nouvel onglet" style={externalLinkStyle}>
-          DS-Lab
-        </a>
-      </nav>
-    </div>
+      <MenuEntry label={DS_LABEL} href={DS_URL} external showIcon />
+    </nav>
   )
 }
