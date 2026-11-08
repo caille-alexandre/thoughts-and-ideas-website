@@ -9,9 +9,15 @@ services:
     ports:
       - "3010:3000"
     volumes:
+      # Seuls notes/ et writing/ sont montés (éditables sans rebuild).
+      # about.mdx et experience/ viennent de l'image : mis à jour à chaque déploiement.
       - type: bind
-        source: /volume1/homes/alexandrecaille/5 - COLD STORAGE/personal-projects/design-portfolio
-        target: /app/content
+        source: /volume1/homes/alexandrecaille/5 - COLD STORAGE/personal-projects/design-portfolio/notes
+        target: /app/content/notes
+        read_only: true
+      - type: bind
+        source: /volume1/homes/alexandrecaille/5 - COLD STORAGE/personal-projects/design-portfolio/writing
+        target: /app/content/writing
         read_only: true
     environment:
       - NODE_ENV=production
