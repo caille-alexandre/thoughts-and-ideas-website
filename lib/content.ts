@@ -1,7 +1,7 @@
 import fs   from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import type { Note, Article } from './types'
+import type { Note, Article, Experience } from './types'
 
 const CONTENT = path.join(process.cwd(), 'content')
 
@@ -66,6 +66,27 @@ export function getArticleBySlug(slug: string): Article | null {
   const { data, content } = parse(file)
   if (!data.published) return null
   return { slug, title: data.title ?? slug, date: data.date ?? '', description: data.description, content }
+}
+
+// ─── Experience ───────────────────────────────────────────
+export function getExperiences(): Experience[] {
+  const dir = path.join(CONTENT, 'experience')
+  return read(dir)
+    .map(f => {
+      const { data, content } = parse(path.join(dir, f))
+      if (data.published === false || !data.title || !data.company || !data.start) return null
+      return {
+        slug: f.replace(/\.mdx?$/, ''),
+        title: String(data.title),
+        company: String(data.company),
+        start: String(data.start),
+        end: data.end ? String(data.end) : undefined,
+        location: data.location ? String(data.location) : undefined,
+        content,
+      } as Experience
+    })
+    .filter((e): e is Experience => e !== null)
+    .sort((a, b) => b.start.localeCompare(a.start))
 }
 
 // ─── About ────────────────────────────────────────────────

@@ -39,7 +39,7 @@ The project deliberately avoids complexity: no CMS, no database, no heavy framew
 
 ```
 /                     → redirect to /about
-/about                → AboutContent component
+/about                → about.mdx + ExperienceTimeline (content/experience/)
 /notes                → null (list shown in TriPanelLayout sidebar)
 /notes/[slug]         → individual note
 /writing              → null (list shown in TriPanelLayout sidebar)
@@ -130,7 +130,20 @@ published: true
 ```
 
 **About** (`content/about.mdx`):
-- No frontmatter required — loaded directly
+- No frontmatter required — loaded directly (the `# h1` of the file is the page title)
+
+**Experience** (`content/experience/*.md`, one file per job, sorted by `start` descending):
+```yaml
+---
+title: "Product Designer"      # job title
+company: "Bedrock Streaming"
+start: "2020-04"               # YYYY-MM
+end: "2022-03"                 # YYYY-MM — omit for a current position
+location: "Paris · Hybride"    # optional
+published: true                # false hides it
+---
+Markdown body = optional description (bullets).
+```
 
 ### Content Loading (`lib/content.ts`)
 
@@ -146,6 +159,8 @@ Key functions:
 - `getArticles()` → returns `Article[]`
 - `getNoteBySlug(slug)` → returns single `Note | null`
 - `getArticleBySlug(slug)` → returns single `Article | null`
+- `getExperiences()` → returns `Experience[]` (`published: false` hidden, newest `start` first)
+- `getAboutContent()` → returns the markdown body of `about.mdx`
 
 ### TypeScript Types (`lib/types.ts`)
 
@@ -162,6 +177,16 @@ interface Article {
   title: string
   date: string
   description?: string
+  content: string
+}
+
+interface Experience {
+  slug: string
+  title: string      // job title
+  company: string
+  start: string      // YYYY-MM
+  end?: string       // YYYY-MM, absent = current
+  location?: string
   content: string
 }
 ```

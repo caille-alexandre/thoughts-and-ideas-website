@@ -167,16 +167,17 @@ Portfolio/
 │   ├── ContentPanel.tsx         ← Right panel: markdown HTML with .prose styling
 │   ├── Divider.tsx              ← Thin (1px) or bold (4px) separator
 │   ├── CursorBracket.tsx        ← Animated bracket cursor (fine pointers only, respects reduced motion)
-│   └── AboutContent.tsx         ← About page specific content
+│   └── ExperienceTimeline.tsx   ← About page: experience timeline (scroll-driven blur, CSS only)
 │
 ├── content/                     ← All site content (.md / .mdx files)
-│   ├── about.mdx                ← About page
+│   ├── about.mdx                ← About page (intro)
+│   ├── experience/              ← One .md per job (About timeline)
 │   ├── notes/                   ← Short-form notes
 │   └── writing/                 ← Long-form articles
 │
 ├── lib/
 │   ├── content.ts               ← Filesystem content loader (gray-matter)
-│   └── types.ts                 ← Note & Article TypeScript interfaces
+│   └── types.ts                 ← Note, Article & Experience TypeScript interfaces
 │
 ├── public/                      ← Static assets (fonts/, icons/icon-external.svg)
 ├── next.config.ts               ← Next.js config + security headers
