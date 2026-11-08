@@ -44,6 +44,14 @@ export default function MenuEntry({ label, href, active = false, showIcon = fals
     </a>
   )
 
+  // mailto : lien simple, pas de routeur ni de nouvel onglet
+  if (href.startsWith('mailto:')) return (
+    <a href={href} style={base} className={className}>
+      {label}
+      {icon}
+    </a>
+  )
+
   return (
     <Link href={href} aria-current={active ? 'page' : undefined} style={base} className={className}>
       {label}

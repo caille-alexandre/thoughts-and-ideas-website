@@ -14,6 +14,9 @@ const SECTIONS = [
 const DS_LABEL = 'AC Design System'
 const DS_URL = 'https://ac-design-system.alexandrecaille.fr'
 
+const CONTACT_LABEL = 'Write me'
+const CONTACT_URL = 'mailto:hello-alex@alexandrecaille.fr'
+
 type SectionId = (typeof SECTIONS)[number]['id']
 
 function activeSection(pathname: string): SectionId {
@@ -47,6 +50,7 @@ export default function SectionNav({ mobile = false }: { mobile?: boolean }) {
         {DS_LABEL}
         <span aria-hidden="true" className="menu-entry__icon" />
       </a>
+      <a href={CONTACT_URL} style={{ ...mobileLink, color: 'var(--text-secondary)' }}>{CONTACT_LABEL}</a>
     </nav>
   )
 
@@ -64,6 +68,7 @@ export default function SectionNav({ mobile = false }: { mobile?: boolean }) {
       </div>
 
       <MenuEntry label={DS_LABEL} href={DS_URL} external showIcon />
+      <MenuEntry label={CONTACT_LABEL} href={CONTACT_URL} />
     </nav>
   )
 }
