@@ -11,20 +11,22 @@ export default function ExperienceTimeline({ experiences }: { experiences: Exper
 
   return (
     <section aria-labelledby="experience-title" style={{ padding: '0 32px 30vh', maxWidth: 720 }}>
-      <div className="prose"><h2 id="experience-title">Expérience</h2></div>
+      <div className="prose"><h2 id="experience-title">{"Expérience"}</h2></div>
       <ol className="timeline">
         {experiences.map(e => (
           <li key={e.slug} className="timeline__item">
-            <p className="timeline__meta">
-              <time dateTime={e.start}>{fmtMonth(e.start)}</time>
-              {' – '}
-              {e.end ? <time dateTime={e.end}>{fmtMonth(e.end)}</time> : 'aujourd’hui'}
-            </p>
-            <h3 className="timeline__title">{e.title}</h3>
-            <p className="timeline__company">{[e.company, e.location].filter(Boolean).join(' · ')}</p>
-            {e.content && (
-              <div className="prose" dangerouslySetInnerHTML={{ __html: marked.parse(e.content, { async: false }) as string }} />
-            )}
+            <div className="timeline__content">
+              <p className="timeline__meta">
+                <time dateTime={e.start}>{fmtMonth(e.start)}</time>
+                {' – '}
+                {e.end ? <time dateTime={e.end}>{fmtMonth(e.end)}</time> : "aujourd’hui"}
+              </p>
+              <h3 className="timeline__title">{e.title}</h3>
+              <p className="timeline__company">{[e.company, e.location].filter(Boolean).join(' · ')}</p>
+              {e.content && (
+                <div className="prose" dangerouslySetInnerHTML={{ __html: marked.parse(e.content, { async: false }) as string }} />
+              )}
+            </div>
           </li>
         ))}
       </ol>

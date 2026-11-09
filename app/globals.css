@@ -126,18 +126,30 @@ a:hover { text-decoration: underline; }
 .timeline__item .prose p:last-child,
 .timeline__item .prose ul:last-child { margin-bottom: 0; }
 
-/* Blur piloté par le scroll : flou aux bords de la zone de lecture, net au centre.
+/* Zoom + glissement piloté par le scroll.
+   - timeline__item : zoom + opacity (repousse le contenu voisin, la puce reste fixe)
+   - timeline__content : translateX (seul le texte glisse, pas la puce)
+   - view(35% 35%) : spotlight restreint au centre → un seul item en focus à la fois
    Sans support (animation-timeline) ou en reduced-motion : timeline nette et statique. */
 @keyframes timeline-focus {
-  0%, 100%  { filter: blur(6px); opacity: 0.3; }
-  25%, 75%  { filter: blur(0);   opacity: 1; }
+  0%, 100%  { opacity: 0.3; zoom: 0.85; }
+  40%, 75%  { opacity: 1;   zoom: 1.1; }
+}
+
+@keyframes timeline-shift {
+  0%, 100%  { transform: translateX(0); }
+  40%, 75%  { transform: translateX(28px); }
 }
 
 @media (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
     .timeline__item {
       animation: timeline-focus linear both;
-      animation-timeline: view();
+      animation-timeline: view(35% 35%);
+    }
+    .timeline__content {
+      animation: timeline-shift linear both;
+      animation-timeline: view(35% 35%);
     }
   }
 }
