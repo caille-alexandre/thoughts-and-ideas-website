@@ -18,7 +18,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const articles = getArticles()
 
   return (
-    <html lang="fr" className="h-full">
+    <html lang="fr" className="h-full" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: `(function(){var t=localStorage.getItem('theme');if(t==='dark'||t==='light'){document.documentElement.dataset.theme=t;}else if(window.matchMedia('(prefers-color-scheme: dark)').matches){document.documentElement.dataset.theme='dark';}})();` }} />
+      </head>
       <body className="h-full">
         <main className="h-full">
           <TriPanelLayout notes={notes} articles={articles}>

@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import MenuEntry from './MenuEntry'
 import Divider from './Divider'
+import ThemeToggle from './ThemeToggle'
 
 const SECTIONS = [
   { id: 'about',   label: 'About',   href: '/about' },
@@ -117,7 +118,7 @@ export default function SectionNav({ mobile = false }: { mobile?: boolean }) {
   return (
     <nav
       aria-label="Navigation principale"
-      style={{ display: 'flex', flexDirection: 'column', gap: '4px', padding: '12px 0', width: '100%' }}
+      style={{ display: 'flex', flexDirection: 'column', gap: '4px', padding: '12px 0', width: '100%', height: '100%' }}
     >
       {SECTIONS.map(s => (
         <MenuEntry key={s.id} label={s.label} href={s.href} active={current === s.id} />
@@ -129,6 +130,11 @@ export default function SectionNav({ mobile = false }: { mobile?: boolean }) {
 
       <MenuEntry label={DS_LABEL} href={DS_URL} external showIcon />
       <MenuEntry label={CONTACT_LABEL} href={CONTACT_URL} />
+
+      <div style={{ marginTop: 'auto', padding: '0 0 4px' }}>
+        <div style={{ padding: '0 16px' }}><Divider /></div>
+        <ThemeToggle />
+      </div>
     </nav>
   )
 }
