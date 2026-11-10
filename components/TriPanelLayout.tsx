@@ -21,7 +21,7 @@ function CopyLinkButton() {
 }
 
 const LEFT_W = 200
-const MID_W  = 420
+const MID_W  = 480
 
 const panel1Style: React.CSSProperties = {
   width: LEFT_W, flexShrink: 0, overflow: 'hidden',

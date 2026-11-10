@@ -14,7 +14,7 @@ function fmtDate(s: string) {
   return new Date(s).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })
 }
 
-export default function ContentPanel({ content, title, date, description, maxWidth = 720 }: Props) {
+export default function ContentPanel({ content, title, date, description, maxWidth = 1240 }: Props) {
   const html = marked.parse(content, { async: false }) as string
 
   return (

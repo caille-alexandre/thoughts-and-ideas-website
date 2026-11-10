@@ -10,7 +10,7 @@ export default function ExperienceTimeline({ experiences }: { experiences: Exper
   if (experiences.length === 0) return null
 
   return (
-    <section aria-labelledby="experience-title" style={{ padding: '0 32px 30vh', maxWidth: 720 }}>
+    <section aria-labelledby="experience-title" style={{ padding: '0 32px 30vh', maxWidth: 1240 }}>
       <div className="prose"><h2 id="experience-title">{"Expérience"}</h2></div>
       <ol className="timeline">
         {experiences.map(e => (
